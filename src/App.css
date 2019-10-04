@@ -1,22 +1,26 @@
-.App {
+.fc-content {
+  
   text-align: center;
+  background-color: white;
 }
 
-.App-logo {
-  height: 40vmin;
+.fc-widget-content{
+  /* vertical-align: center; */
+   /* padding-top: 2em; 
+   height: 1em; */
+  /* Align Vertically */
+  /* align-content: center; */
+  /* align-items: center; */
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.fc-title {
+  
+  display: inline-block;
+  color: black;
 }
 
-.App-link {
-  color: #09d3ac;
+.fc td.fc-today{
+  background: #98d8c9 !important; 
+  
 }
