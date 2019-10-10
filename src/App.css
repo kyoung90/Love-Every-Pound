@@ -24,3 +24,23 @@
   background: #98d8c9 !important; 
   
 }
+
+.weight-chart{
+  height: 550px;
+  width: 90%;
+}
+
+/* .weight-chart{
+  height: 25em;
+  width: 50em;
+} */
+body {
+  background-color: rgb(234, 234, 234) !important;
+}
+
+.main-container{
+  padding-top: 3em;
+  /* text-align: center;
+  align-content: center; */
+  margin: 0 auto;
+}
