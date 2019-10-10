@@ -32,7 +32,7 @@ const Signup = () => {
     <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as="h2" color="purple" textAlign="center">
-          Create your account
+          Create an account
         </Header>
         <Form size="large">
           <Segment stacked>
@@ -86,7 +86,7 @@ const Signup = () => {
               </Form.Group>
             </Form.Group> */}
 
-            <Dropdown
+            <Form.Dropdown
               label="Quote Preference"
               placeholder="Inspirational"
               fluid

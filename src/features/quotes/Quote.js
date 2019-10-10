@@ -1,16 +1,43 @@
 import React from 'react'
-import {Link} from "react-router-dom"
-import {Icon, Button} from "semantic-ui-react"
+import { Card, Button, Container } from "semantic-ui-react";
+import { Link } from "react-dom";
 import WeightForm from '../user/form/WeightForm'
+
+const quote = [
+    <br />,
+    <h5> "Life is great. You got this!" </h5>,
+    <br />,
+    <h6> By: Baka </h6>
+  ];
 
 const Quote = () => {
     return (
-        <div>
-            <h3>"Life is great. You got this!" - Author Unknown</h3>
-            <Button circular color="blue" as={Link} to="/" icon="quote right"></Button>
-            <Button circular color="blue" as={Link} to="/weights" icon="calendar alternate"></Button>
-            <WeightForm />
-        </div>
+        <Container fluid maxWidth={1000}>
+    <Card centered raised className="card">
+      <Card.Content className="success" header="Your daily inspiration" />
+      <Card.Content description={quote} />
+      <Card.Content className="success" extra>
+        <Button
+          primary
+          className="info"
+          circular
+          as={Link}
+          to="/"
+          icon="quote right"
+        />
+        <Button
+          primary
+          className="info"
+          circular
+          as={Link}
+          to="/weights"
+          icon="calendar alternate"
+        />
+        <WeightForm />
+      </Card.Content>
+    </Card>
+  </Container>
+
     )
 }
 

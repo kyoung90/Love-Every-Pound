@@ -6,7 +6,7 @@ const WeightForm = () => {
   return (
     <Modal
       size="mini"
-      trigger={<Button circular color="blue" icon="plus"></Button>}
+      trigger={<Button primary circular className="info" icon="plus"></Button>}
       centered={false}
       closeIcon
     >

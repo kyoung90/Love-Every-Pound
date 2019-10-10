@@ -44,3 +44,22 @@ body {
   align-content: center; */
   margin: 0 auto;
 }
+
+
+
+.card {
+  text-align: center;
+  background-color: #d4d949;
+}
+.success {
+  background-color: #9b8ca5 !important;
+}
+.info {
+  background-color: #a0a605 !important;
+}
+.warning {
+  background-color: #98d8c9 !important;
+}
+.danger {
+  background-color: #59574c !important;
+}
