@@ -2674,3 +2674,82 @@ Completed 200 OK in 25ms (Views: 9.7ms | ActiveRecord: 12.4ms)
   [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
   [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT  "quotes".* FROM "quotes" ORDER BY "quotes"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+Started POST "/login" for ::1 at 2019-10-12 02:45:55 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"john@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "session"=>{"user"=>{"email"=>"john@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "john@doe.com"], ["LIMIT", 1]]
+  ↳ /Users/forwardlearning/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.75ms)
+Completed 200 OK in 195ms (Views: 2.4ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/quotes/random" for ::1 at 2019-10-12 02:46:16 -0400
+Processing by QuotesController#random as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/forwardlearning/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mJwtBlacklist Exists (8.7ms)[0m  [1m[34mSELECT  1 AS one FROM "jwt_blacklists" WHERE "jwt_blacklists"."jti" = $1 LIMIT $2[0m  [["jti", "1f14c476-9e80-4fac-a815-56444e9f8923"], ["LIMIT", 1]]
+  ↳ /Users/forwardlearning/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mPreference Load (1.0ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" INNER JOIN "user_quote_preferences" ON "preferences"."id" = "user_quote_preferences"."preference_id" WHERE "user_quote_preferences"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/quotes_controller.rb:5
+  [1m[36mQuote Load (0.7ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."preference_id" = $1[0m  [["preference_id", 2]]
+  ↳ app/controllers/quotes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Quote (0.93ms)
+Completed 200 OK in 102ms (Views: 15.1ms | ActiveRecord: 40.9ms)
+
+
+Started GET "/quotes/random" for ::1 at 2019-10-12 02:46:21 -0400
+Processing by QuotesController#random as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/forwardlearning/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mJwtBlacklist Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "jwt_blacklists" WHERE "jwt_blacklists"."jti" = $1 LIMIT $2[0m  [["jti", "1f14c476-9e80-4fac-a815-56444e9f8923"], ["LIMIT", 1]]
+  ↳ /Users/forwardlearning/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mPreference Load (0.8ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" INNER JOIN "user_quote_preferences" ON "preferences"."id" = "user_quote_preferences"."preference_id" WHERE "user_quote_preferences"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/quotes_controller.rb:5
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."preference_id" = $1[0m  [["preference_id", 2]]
+  ↳ app/controllers/quotes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Quote (0.37ms)
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/quotes/random" for ::1 at 2019-10-12 02:46:23 -0400
+Processing by QuotesController#random as */*
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/forwardlearning/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mJwtBlacklist Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "jwt_blacklists" WHERE "jwt_blacklists"."jti" = $1 LIMIT $2[0m  [["jti", "1f14c476-9e80-4fac-a815-56444e9f8923"], ["LIMIT", 1]]
+  ↳ /Users/forwardlearning/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mPreference Load (0.7ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" INNER JOIN "user_quote_preferences" ON "preferences"."id" = "user_quote_preferences"."preference_id" WHERE "user_quote_preferences"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/quotes_controller.rb:5
+  [1m[36mQuote Load (2.0ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."preference_id" = $1[0m  [["preference_id", 2]]
+  ↳ app/controllers/quotes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Quote (0.29ms)
+Completed 200 OK in 40ms (Views: 1.1ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/quotes/random" for ::1 at 2019-10-12 02:46:45 -0400
+Processing by QuotesController#random as */*
+  [1m[36mUser Load (20.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/forwardlearning/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mJwtBlacklist Exists (11.5ms)[0m  [1m[34mSELECT  1 AS one FROM "jwt_blacklists" WHERE "jwt_blacklists"."jti" = $1 LIMIT $2[0m  [["jti", "1f14c476-9e80-4fac-a815-56444e9f8923"], ["LIMIT", 1]]
+  ↳ /Users/forwardlearning/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mPreference Load (2.0ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" INNER JOIN "user_quote_preferences" ON "preferences"."id" = "user_quote_preferences"."preference_id" WHERE "user_quote_preferences"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/quotes_controller.rb:5
+  [1m[36mQuote Load (1.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."preference_id" = $1[0m  [["preference_id", 2]]
+  ↳ app/controllers/quotes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Quote (0.45ms)
+Completed 200 OK in 43ms (Views: 1.1ms | ActiveRecord: 35.1ms)
+
+
+Started GET "/quotes/random" for ::1 at 2019-10-12 02:46:49 -0400
+Processing by QuotesController#random as */*
+  [1m[36mUser Load (14.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/forwardlearning/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mJwtBlacklist Exists (6.3ms)[0m  [1m[34mSELECT  1 AS one FROM "jwt_blacklists" WHERE "jwt_blacklists"."jti" = $1 LIMIT $2[0m  [["jti", "1f14c476-9e80-4fac-a815-56444e9f8923"], ["LIMIT", 1]]
+  ↳ /Users/forwardlearning/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mPreference Load (0.7ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" INNER JOIN "user_quote_preferences" ON "preferences"."id" = "user_quote_preferences"."preference_id" WHERE "user_quote_preferences"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/quotes_controller.rb:5
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."preference_id" = $1[0m  [["preference_id", 2]]
+  ↳ app/controllers/quotes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Quote (0.45ms)
+Completed 200 OK in 29ms (Views: 1.1ms | ActiveRecord: 22.4ms)
+
+
