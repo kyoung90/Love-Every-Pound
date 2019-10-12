@@ -1,0 +1,2 @@
+class UserQuotePreference < ApplicationRecord
+end
