@@ -2753,3 +2753,9 @@ Processing by QuotesController#random as */*
 Completed 200 OK in 29ms (Views: 1.1ms | ActiveRecord: 22.4ms)
 
 
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPreference Load (1.7ms)[0m  [1m[34mSELECT  "preferences".* FROM "preferences" INNER JOIN "user_quote_preferences" ON "preferences"."id" = "user_quote_preferences"."preference_id" WHERE "user_quote_preferences"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mPreference Load (0.6ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" INNER JOIN "user_quote_preferences" ON "preferences"."id" = "user_quote_preferences"."preference_id" WHERE "user_quote_preferences"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mQuote Load (0.7ms)[0m  [1m[34mSELECT  "quotes".* FROM "quotes" WHERE "quotes"."preference_id" = $1 LIMIT $2[0m  [["preference_id", 2], ["LIMIT", 11]]
+  [1m[36mQuote Load (0.7ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."preference_id" = $1[0m  [["preference_id", 2]]
