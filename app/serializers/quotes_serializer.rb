@@ -1,3 +1,4 @@
 class QuoteSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :content, :author
+
 end
