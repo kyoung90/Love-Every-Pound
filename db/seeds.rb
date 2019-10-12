@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+inspiration = Preference.create(name: "Inspirational")
+fitness = Preference.create(name: "Fitness")
+self_love = Preference.create(name: "Self Love")
+positive_affirmation = Preference.create(name: "Positive Affirmation")
