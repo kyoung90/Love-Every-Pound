@@ -2902,3 +2902,296 @@ Processing by UsersController#show as */*
 Completed 200 OK in 1304ms (Views: 784.5ms | ActiveRecord: 67.2ms)
 
 
+Started GET "/static/js/main.chunk.js" for ::1 at 2019-10-13 20:41:20 -0400
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/forwardlearning/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/static/js/main.chunk.js"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/manifest.json" for ::1 at 2019-10-13 20:41:22 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/sockjs-node/891/qnuewjkt/websocket" for ::1 at 2019-10-13 20:41:23 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/sockjs-node/891/qnuewjkt/websocket"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/signup" for ::1 at 2019-10-13 21:00:39 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "quote_preferences"=>["inspirational", "fitness"]}, "registration"=>{"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "quote_preferences"=>["inspirational", "fitness"]}}}
+Completed 500 Internal Server Error in 311ms (ActiveRecord: 32.8ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'quote_preferences' for User.):
+  
+app/controllers/registrations_controller.rb:6:in `create'
+Started POST "/signup" for ::1 at 2019-10-13 21:02:27 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "quote_preferences"=>["inspirational", "fitness"]}, "registration"=>{"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "quote_preferences"=>["inspirational", "fitness"]}}}
+Completed 500 Internal Server Error in 330ms (ActiveRecord: 15.7ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'quote_preferences' for User.):
+  
+app/controllers/registrations_controller.rb:6:in `create'
+Started POST "/signup" for ::1 at 2019-10-13 21:06:27 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preferences"=>["inspirational", "fitness"]}, "registration"=>{"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preferences"=>["inspirational", "fitness"]}}}
+Completed 500 Internal Server Error in 339ms (ActiveRecord: 44.7ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Preference(#70326569135860) expected, got "inspirational" which is an instance of String(#70326562471400)):
+  
+app/controllers/registrations_controller.rb:6:in `create'
+Started POST "/signup" for ::1 at 2019-10-13 21:06:48 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preferences"=>["inspirational", "fitness"]}, "registration"=>{"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preferences"=>["inspirational", "fitness"]}}}
+Completed 500 Internal Server Error in 365ms (ActiveRecord: 13.1ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Preference(#70326572992780) expected, got "inspirational" which is an instance of String(#70326562471400)):
+  
+app/controllers/registrations_controller.rb:6:in `create'
+Started POST "/signup" for ::1 at 2019-10-13 21:07:04 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preferences"=>["inspirational", "fitness"]}, "registration"=>{"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preferences"=>["inspirational", "fitness"]}}}
+Completed 500 Internal Server Error in 317ms (ActiveRecord: 16.0ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Preference(#70326572659940) expected, got "inspirational" which is an instance of String(#70326562471400)):
+  
+app/controllers/registrations_controller.rb:6:in `create'
+Started POST "/signup" for ::1 at 2019-10-13 21:15:02 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[1, 2]}, "registration"=>{"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[1, 2]}}}
+  [1m[36mPreference Load (1.4ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" WHERE "preferences"."id" IN ($1, $2)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/registrations_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "john1@doe.com"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "weight_unit", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "john1@doe.com"], ["encrypted_password", "$2a$11$0Q22KuQKZ1gTEhav9/J91uXmb7WSWAfnS41Os/BHWq1YCZYCvhrRC"], ["username", "johndoe"], ["weight_unit", "lb"], ["created_at", "2019-10-14 01:15:02.647836"], ["updated_at", "2019-10-14 01:15:02.647836"]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUserQuotePreference Create (1.0ms)[0m  [1m[32mINSERT INTO "user_quote_preferences" ("preference_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["preference_id", 1], ["user_id", 2], ["created_at", "2019-10-14 01:15:02.654343"], ["updated_at", "2019-10-14 01:15:02.654343"]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUserQuotePreference Create (0.4ms)[0m  [1m[32mINSERT INTO "user_quote_preferences" ("preference_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["preference_id", 2], ["user_id", 2], ["created_at", "2019-10-14 01:15:02.656778"], ["updated_at", "2019-10-14 01:15:02.656778"]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/registrations_controller.rb:7
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.55ms)
+Completed 500 Internal Server Error in 367ms (ActiveRecord: 52.4ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/models/user.rb:13:in `preferences'
+app/controllers/application_controller.rb:6:in `render_resource'
+app/controllers/registrations_controller.rb:9:in `create'
+Started POST "/signup" for ::1 at 2019-10-13 21:15:23 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[1, 2]}, "registration"=>{"user"=>{"email"=>"john1@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[1, 2]}}}
+  [1m[36mPreference Load (0.5ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" WHERE "preferences"."id" IN ($1, $2)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/registrations_controller.rb:6
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "john1@doe.com"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/registrations_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.53ms)
+Completed 400 Bad Request in 392ms (Views: 9.2ms | ActiveRecord: 34.2ms)
+
+
+Started POST "/signup" for ::1 at 2019-10-13 21:15:46 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john2@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[1, 2]}, "registration"=>{"user"=>{"email"=>"john2@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[1, 2]}}}
+  [1m[36mPreference Load (0.6ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" WHERE "preferences"."id" IN ($1, $2)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/registrations_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "john2@doe.com"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "weight_unit", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "john2@doe.com"], ["encrypted_password", "$2a$11$9gLvqe4i5Yz/J13SMZqVCO91jJehKFC2hmKMbKnqIYYRdNPfODvYi"], ["username", "johndoe"], ["weight_unit", "lb"], ["created_at", "2019-10-14 01:15:47.373102"], ["updated_at", "2019-10-14 01:15:47.373102"]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUserQuotePreference Create (0.7ms)[0m  [1m[32mINSERT INTO "user_quote_preferences" ("preference_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["preference_id", 1], ["user_id", 3], ["created_at", "2019-10-14 01:15:47.377739"], ["updated_at", "2019-10-14 01:15:47.377739"]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUserQuotePreference Create (0.5ms)[0m  [1m[32mINSERT INTO "user_quote_preferences" ("preference_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["preference_id", 2], ["user_id", 3], ["created_at", "2019-10-14 01:15:47.380452"], ["updated_at", "2019-10-14 01:15:47.380452"]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/registrations_controller.rb:7
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (47277.52ms)
+Completed 500 Internal Server Error in 47759ms (ActiveRecord: 56.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `block in attributes'
+app/controllers/application_controller.rb:6:in `render_resource'
+app/controllers/registrations_controller.rb:9:in `create'
+Started POST "/signup" for ::1 at 2019-10-13 21:16:44 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john2@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[1, 2]}, "registration"=>{"user"=>{"email"=>"john2@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[1, 2]}}}
+  [1m[36mPreference Load (1.6ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" WHERE "preferences"."id" IN ($1, $2)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/registrations_controller.rb:6
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "john2@doe.com"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/registrations_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.51ms)
+Completed 400 Bad Request in 1665ms (Views: 131.1ms | ActiveRecord: 208.7ms)
+
+
+Started POST "/signup" for ::1 at 2019-10-13 21:17:02 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john3@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[1, 2]}, "registration"=>{"user"=>{"email"=>"john3@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[1, 2]}}}
+  [1m[36mPreference Load (1.6ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" WHERE "preferences"."id" IN ($1, $2)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/registrations_controller.rb:6
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "john3@doe.com"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "weight_unit", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "john3@doe.com"], ["encrypted_password", "$2a$11$u3GXJARTvXKNxEE2anj8N.8c76t8GxJ1uvvdYQJ52gZzosxZoa6Ye"], ["username", "johndoe"], ["weight_unit", "lb"], ["created_at", "2019-10-14 01:17:06.708161"], ["updated_at", "2019-10-14 01:17:06.708161"]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUserQuotePreference Create (3.7ms)[0m  [1m[32mINSERT INTO "user_quote_preferences" ("preference_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["preference_id", 1], ["user_id", 4], ["created_at", "2019-10-14 01:17:06.804082"], ["updated_at", "2019-10-14 01:17:06.804082"]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUserQuotePreference Create (2.3ms)[0m  [1m[32mINSERT INTO "user_quote_preferences" ("preference_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["preference_id", 2], ["user_id", 4], ["created_at", "2019-10-14 01:17:06.888742"], ["updated_at", "2019-10-14 01:17:06.888742"]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/registrations_controller.rb:7
+[active_model_serializers]   [1m[36mWeight Load (6.0ms)[0m  [1m[34mSELECT "weights".* FROM "weights" WHERE "weights"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/application_controller.rb:6
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (211.75ms)
+Completed 200 OK in 2266ms (Views: 259.5ms | ActiveRecord: 77.7ms)
+
+
+Started POST "/signup" for ::1 at 2019-10-13 21:17:26 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john5@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[]}, "registration"=>{"user"=>{"email"=>"john5@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[]}}}
+  [1m[36mPreference Load (3.0ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" WHERE 1=0[0m
+  ↳ app/controllers/registrations_controller.rb:6
+  [1m[35m (2.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Exists (7.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "john5@doe.com"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Create (4.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "weight_unit", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "john5@doe.com"], ["encrypted_password", "$2a$11$J4N3FMj5e2ocOHqB6MdexutmiV8BsS0cGRGSS8fNOg7CUh5/HPQrm"], ["username", "johndoe"], ["weight_unit", "lb"], ["created_at", "2019-10-14 01:17:26.748751"], ["updated_at", "2019-10-14 01:17:26.748751"]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/registrations_controller.rb:7
+[active_model_serializers]   [1m[36mWeight Load (1.6ms)[0m  [1m[34mSELECT "weights".* FROM "weights" WHERE "weights"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   ↳ app/controllers/application_controller.rb:6
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (68.68ms)
+Completed 200 OK in 622ms (Views: 103.1ms | ActiveRecord: 21.0ms)
+
+
+Started POST "/signup" for ::1 at 2019-10-13 21:17:32 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john5@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[4]}, "registration"=>{"user"=>{"email"=>"john5@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[4]}}}
+  [1m[36mPreference Load (6.6ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" WHERE "preferences"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/registrations_controller.rb:6
+  [1m[35m (6.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "john5@doe.com"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[35m (1.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/registrations_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (5.28ms)
+Completed 400 Bad Request in 732ms (Views: 162.7ms | ActiveRecord: 16.4ms)
+
+
+Started POST "/signup" for ::1 at 2019-10-13 21:17:39 -0400
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"john6@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[4]}, "registration"=>{"user"=>{"email"=>"john6@doe.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "username"=>"johndoe", "weight_unit"=>"lb", "preference_ids"=>[4]}}}
+  [1m[36mPreference Load (2.7ms)[0m  [1m[34mSELECT "preferences".* FROM "preferences" WHERE "preferences"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/registrations_controller.rb:6
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "john6@doe.com"], ["LIMIT", 1]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "weight_unit", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "john6@doe.com"], ["encrypted_password", "$2a$11$UnJyV863hxZTmBTwFGMY/uQap0mFXNjtLfJkmq4rP6QRZUxQCt0tu"], ["username", "johndoe"], ["weight_unit", "lb"], ["created_at", "2019-10-14 01:17:40.548732"], ["updated_at", "2019-10-14 01:17:40.548732"]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[36mUserQuotePreference Create (9.2ms)[0m  [1m[32mINSERT INTO "user_quote_preferences" ("preference_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["preference_id", 4], ["user_id", 6], ["created_at", "2019-10-14 01:17:40.638136"], ["updated_at", "2019-10-14 01:17:40.638136"]]
+  ↳ app/controllers/registrations_controller.rb:7
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/registrations_controller.rb:7
+[active_model_serializers]   [1m[36mWeight Load (2.7ms)[0m  [1m[34mSELECT "weights".* FROM "weights" WHERE "weights"."user_id" = $1[0m  [["user_id", 6]]
+[active_model_serializers]   ↳ app/controllers/application_controller.rb:6
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (74.75ms)
+Completed 200 OK in 809ms (Views: 101.0ms | ActiveRecord: 22.8ms)
+
+

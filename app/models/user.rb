@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :preferences, through: :user_quote_preferences
   
   has_many :weights
+
 end
