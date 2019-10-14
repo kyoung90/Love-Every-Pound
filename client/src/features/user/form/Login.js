@@ -11,12 +11,12 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
+    <Grid textAlign="center" style={{ height: "50vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="purple" textAlign="center">
+        <Header as="h2" textAlign="center">
           Log-in to your account
         </Header>
-        <Form size="large">
+        <Form size="large" classname="info">
           <Segment stacked>
             <Form.Input
               fluid
@@ -33,7 +33,7 @@ const Login = () => {
             />
 
             
-            <Button animated="fade" color="purple" fluid size="large">
+            <Button className="success" inverted animated="fade" fluid size="large">
               <Button.Content visible> Login </Button.Content>
               <Button.Content hidden> Love Yourself </Button.Content>
             </Button>
