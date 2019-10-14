@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :preferences, only: [:index]
   resources :users, only: [:show]
 
+  scope "/users" do 
+    resources :weights, only: [:update, :create, :destroy]
+  end 
+
   get "/quotes/random", to: "quotes#random"
   
   Rails.application.routes.draw do
