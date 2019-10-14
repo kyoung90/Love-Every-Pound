@@ -48,8 +48,7 @@ body {
 
 
 .card {
-  text-align: center;
-  background-color: #d4d949;
+  text-align: center;  
 }
 .success {
   background-color: #9b8ca5 !important;
@@ -62,4 +61,25 @@ body {
 }
 .danger {
   background-color: #59574c !important;
+}
+
+.primary{
+  background-color: #d4d949 !important;
+}
+
+.success-text {
+  color: #9b8ca5 !important;
+}
+.info-text {
+  color: #a0a605;
+}
+.warning-text {
+  color: #98d8c9 !important;
+}
+.danger-text {
+  color: #59574c !important;
+}
+
+.primary-text{
+  color: #d4d949 !important;
 }
