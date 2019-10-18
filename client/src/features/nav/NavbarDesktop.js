@@ -16,11 +16,15 @@ const NavbarDesktop = ({ leftItems, rightItems }) => {
       {leftItems.map(item => (
         <Menu.Item as={NavLink} {...item} />
       ))}
-      <Menu.Menu position="right">
-        {rightItems.map(item => (
-          <Menu.Item as={NavLink} {...item} />
-        ))}
-      </Menu.Menu>
+      {localStorage.getItem("token") ? (
+        <div></div>
+      ) : (
+        <Menu.Menu position="right">
+          {rightItems.map(item => (
+            <Menu.Item as={NavLink} {...item} />
+          ))}
+        </Menu.Menu>
+      )}
     </Menu>
   );
 };

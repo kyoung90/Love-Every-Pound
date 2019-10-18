@@ -25,6 +25,7 @@ export function loginAction(formData) {
             .then(response => {
                 return response.json()
             }).then(responseJSON => {
+                localStorage.setItem('token', responseJSON.token)
                 dispatch({type: "LOGIN", payload: responseJSON})
             })
     };
