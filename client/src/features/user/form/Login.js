@@ -23,6 +23,7 @@ const Login = props => {
 
   const handleSubmit = () => {
     props.login({user});
+    props.history.push("/quote")
   };
 
   return (

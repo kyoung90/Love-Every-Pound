@@ -6,6 +6,9 @@ export default function usersReducer(state={loading: false, current_user: null},
             return {loading: false, current_user: action.payload}
         case "LOGIN":
             return {loading: false, current_user: action.payload}
+        case "LOGOUT_USER":
+            localStorage.removeItem("token")
+            return {loading: false, current_user: null}
         default:
             return state
     }
