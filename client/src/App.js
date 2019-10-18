@@ -20,7 +20,7 @@ function App() {
       return (
         <React.Fragment>
           <Route exact path="/login" render={props => <Login {...props} />} />
-          <Route exact path="/signup" render={() => <Signup />} />
+          <Route exact path="/signup" render={props => <Signup {...props} />} />
         </React.Fragment>
       );
     }
