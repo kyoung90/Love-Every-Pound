@@ -34,7 +34,7 @@ function App() {
               render={props => <SettingsForm routeProps={props} />}
             />
             {/* <Route exact path="/weights/new" render={() => <h1>Weight Form</h1>} /> */}
-            <Route exact path="/login" render={() => <Login />} />
+            <Route exact path="/login" render={(props) => <Login {...props}/>} />
             <Route exact path="/signup" render={() => <Signup />} />
             <Route render={() => <h1>Error!</h1>} />
           </Switch>
