@@ -10,4 +10,10 @@ class User < ApplicationRecord
   
   has_many :weights
 
+  attr_accessor :token
+
+  def on_jwt_dispatch(token, payload)
+    self.token = token
+  end
+
 end
