@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./App.css";
 import WeightDisplay from "./features/user/WeightDisplay";
 import QuoteDisplay from "./features/quotes/QuoteDisplay";
@@ -11,12 +11,28 @@ import Profile from "./features/user/Profile";
 import SettingsForm from "./features/user/form/SettingsForm";
 import Login from "./features/user/form/Login";
 import Signup from "./features/user/form/Signup";
-import { leftItems, rightItems } from "./commons/lists";
+import { leftItems, rightItems, loggedInRightItems } from "./commons/lists";
+import { connect } from "react-redux";
 
 function App() {
+  const generateLoginSignupRoutes = () => {
+    if (!localStorage.getItem("token")) {
+      return (
+        <React.Fragment>
+          <Route exact path="/login" render={props => <Login {...props} />} />
+          <Route exact path="/signup" render={props => <Signup {...props} />} />
+        </React.Fragment>
+      );
+    }
+  };
+
   return (
     <div className="App">
-      <Navbar leftItems={leftItems} rightItems={rightItems}>
+      <Navbar
+        leftItems={leftItems}
+        rightItems={rightItems}
+        loggedInRightItems={loggedInRightItems}
+      >
         <Container className="main-container" textAlign="center">
           <Switch>
             <Route exact path="/" render={() => <Home />} />
@@ -34,8 +50,8 @@ function App() {
               render={props => <SettingsForm routeProps={props} />}
             />
             {/* <Route exact path="/weights/new" render={() => <h1>Weight Form</h1>} /> */}
-            <Route exact path="/login" render={() => <Login />} />
-            <Route exact path="/signup" render={() => <Signup />} />
+            {generateLoginSignupRoutes()}
+
             <Route render={() => <h1>Error!</h1>} />
           </Switch>
         </Container>
@@ -44,4 +60,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect()(App);

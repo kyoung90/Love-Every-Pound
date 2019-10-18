@@ -8,3 +8,7 @@ export const rightItems = [
   { content: "Login", key: "login", to: "/login" },
   { content: "Sign up", key: "signup", to: "/signup" }
 ];
+
+export const loggedInRightItems = [
+  { content: "Logout", key: "logout" }
+];
