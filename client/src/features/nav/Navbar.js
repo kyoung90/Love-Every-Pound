@@ -15,7 +15,7 @@ import {connect} from "react-redux"
 // import { leftItems, rightItems } from "../../commons/lists";
 
 const NavBarChildren = ({ children }) => (
-  <Container style={{ marginTop: "5em" }}>{children}</Container>
+  <Container style={{ marginTop: "1em" }}>{children}</Container>
 );
 
 const Navbar = props => {
