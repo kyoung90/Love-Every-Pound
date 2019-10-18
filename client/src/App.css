@@ -1,31 +1,27 @@
 .fc-content {
-  
   text-align: center;
   background-color: white;
 }
 
-.fc-widget-content{
+.fc-widget-content {
   /* vertical-align: center; */
-   /* padding-top: 2em; 
+  /* padding-top: 2em; 
    height: 1em; */
   /* Align Vertically */
   /* align-content: center; */
   /* align-items: center; */
-  
 }
 
 .fc-title {
-  
   display: inline-block;
   color: black;
 }
 
-.fc td.fc-today{
-  background: #98d8c9 !important; 
-  
+.fc td.fc-today {
+  background: #98d8c9 !important;
 }
 
-.weight-chart{
+.weight-chart {
   height: 550px;
   width: 90%;
 }
@@ -34,52 +30,63 @@
   height: 25em;
   width: 50em;
 } */
+
 body {
   background-color: rgb(234, 234, 234) !important;
 }
 
-.main-container{
+.main-container {
   padding-top: 3em;
   /* text-align: center;
   align-content: center; */
   margin: 0 auto;
 }
 
-
-
 .card {
-  text-align: center;  
+  text-align: center;
 }
+
 .success {
   background-color: #9b8ca5 !important;
 }
+
 .info {
   background-color: #a0a605 !important;
 }
+
 .warning {
   background-color: #98d8c9 !important;
 }
+
 .danger {
   background-color: #59574c !important;
 }
 
-.primary{
+.primary {
   background-color: #d4d949 !important;
 }
 
 .success-text {
   color: #9b8ca5 !important;
 }
+
 .info-text {
   color: #a0a605;
 }
+
 .warning-text {
   color: #98d8c9 !important;
 }
+
 .danger-text {
   color: #59574c !important;
 }
 
-.primary-text{
+.primary-text {
   color: #d4d949 !important;
+}
+
+#paralaxImage {
+  height: 800px;
+  width: 1200px;
 }
