@@ -6,7 +6,7 @@ class QuotesController < ApplicationController
 
         if preference 
             quote = preference.quotes.sample
-            render json: quote
+            render :json => quote
         else 
             quote = Quote.all.sample
             render json: quote
