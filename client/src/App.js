@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <Navbar leftItems={leftItems} rightItems={rightItems}>
-        <Container className="main-container" textAlign="center">
+        <div className="main-container" textAlign="center">
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/about" render={() => <About />} />
@@ -38,7 +38,7 @@ function App() {
             <Route exact path="/signup" render={() => <Signup />} />
             <Route render={() => <h1>Error!</h1>} />
           </Switch>
-        </Container>
+        </div>
       </Navbar>
     </div>
   );
