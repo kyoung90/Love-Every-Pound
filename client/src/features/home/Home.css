@@ -12,14 +12,14 @@
     min-height: 100%;
   }
   
-  /* Second image (Portfolio) */
+  /* Second image (About top) */
   .bgimg-2 {
     background-image: url("/assets/images/watermelon.jpg");
 
     min-height: 800px;
   }
   
-  /* Third image (Contact) */
+  /* Third image (About bottom) */
   .bgimg-3 {
     background-image: url("/assets/images/swim.jpg");
     min-height: 1000px;

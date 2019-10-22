@@ -1,9 +1,8 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
 
 const MissionCard = () => {
     return (
-        <Container>
+        <div>
             <h1 className="w3-center"><em>Our Mission</em></h1>
             <div className="ui inverted divider"></div>
             <h4>
@@ -11,7 +10,7 @@ const MissionCard = () => {
             <br />
             <br />
             <br />
-        </Container>
+        </div>
     );
 }
 

@@ -42,7 +42,13 @@ const About = () => {
                 </div>
             </div>
 
-            <div className="bgimg-3 w3-display-container w3-opacity-min" id="aboutMe">
+            <div 
+            className="bgimg-3 w3-display-container w3-opacity-min" 
+            id="aboutMe" 
+            style={{
+                minHeight:'1500px'
+            }}
+            >
 
 
                 <div className="w3-display-middle">
@@ -50,25 +56,22 @@ const About = () => {
                         <Grid columns={2} stackable>
                             <Grid.Row>
                                 <Grid.Column>
-                                    <Container className="">
+                                    <Container>
                                         <div w3-display-middle id="mission-card" >
                                             <Menu fluid widths={3} attached='top' tabular >
                                                 <Menu.Item
-                                                    inverted
                                                     className="primary"
                                                     name='Mission'
                                                     active={activeItem === 'Mission'}
                                                     onClick={handleItemClick}
                                                 />
                                                 <Menu.Item
-                                                    inverted
                                                     className="info"
                                                     name='Vision'
                                                     active={activeItem === 'Vision'}
                                                     onClick={handleItemClick}
                                                 />
                                                 <Menu.Item
-                                                    inverted
                                                     className="warning"
                                                     name='Creators'
                                                     active={activeItem === 'Creators'}
@@ -76,8 +79,8 @@ const About = () => {
                                                 />
                                             </Menu>
 
-                                            <Segment padded='very' className={activeItem} fluid attached='bottom' style={{ minHeight: "400px" }}>
-                                                <Container>{bio}</Container>
+                                            <Segment padded='very' className={activeItem} fluid attached='bottom' style={{ height: "400px" }}>
+                                             {bio}
                                             </Segment>
                                         </div>
                                     </Container>
