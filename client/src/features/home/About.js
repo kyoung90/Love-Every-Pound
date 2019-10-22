@@ -22,13 +22,13 @@ const About = () => {
 
     if (activeItem === 'Mission') {
         bio = <MissionCard />
-        pic = <Image src={'/assets/images/logo.png'} size='large' fluid />
+        pic = <Image src={'/assets/images/logo.png'} size='large' centered fluid />
     } else if (activeItem === 'Vision') {
         bio = <VisionCard />
-        pic = <Image src={'/assets/images/flagLogo.png'} size='massive' fluid />
+        pic = <Image src={'/assets/images/flagLogo.png'} size='massive' centered fluid />
     } else if (activeItem === 'Creators') {
         bio = <CreatersCard />
-        pic = <Image src={'/assets/images/Us.png'} size='large' fluid />
+        pic = <Image src={'/assets/images/Us.png'} size='large' centered fluid />
     }
 
     return (
@@ -51,7 +51,7 @@ const About = () => {
                             <Grid.Row>
                                 <Grid.Column>
                                     <Container className="">
-                                        <div w3-display-container>
+                                        <div w3-display-middle id="mission-card" >
                                             <Menu fluid widths={3} attached='top' tabular >
                                                 <Menu.Item
                                                     inverted
@@ -76,14 +76,14 @@ const About = () => {
                                                 />
                                             </Menu>
 
-                                            <Segment className={activeItem} attached='bottom' style={{ height: "400px" }}>
+                                            <Segment padded='very' className={activeItem} fluid attached='bottom' style={{ minHeight: "400px" }}>
                                                 <Container>{bio}</Container>
                                             </Segment>
                                         </div>
                                     </Container>
                                 </Grid.Column>
                                 <Grid.Column>
-                                    <div className="w3-content w3-display-container w3-padding-64">
+                                    <div className="w3-content w3-display-container-middle w3-padding-64">
                                         {pic}
                                     </div>
                                 </Grid.Column>
