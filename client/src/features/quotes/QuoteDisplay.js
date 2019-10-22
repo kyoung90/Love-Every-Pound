@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import Quote from "./Quote";
-import { Container } from "semantic-ui-react";
 import {connect} from "react-redux"
 import {fetchRandomQuote} from "../../actions/quoteActions"
 

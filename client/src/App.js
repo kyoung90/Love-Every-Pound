@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./App.css";
 import WeightDisplay from "./features/user/WeightDisplay";
 import QuoteDisplay from "./features/quotes/QuoteDisplay";
-import { Container, Image } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import { Route, Switch } from "react-router-dom";
 import Navbar from "./features/nav/Navbar";
 import Home from "./features/home/Home";

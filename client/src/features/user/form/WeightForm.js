@@ -1,8 +1,19 @@
-import React from "react";
-import { Button, Header, Icon, Modal, Form, Image } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Button, Modal, Form } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { addUserWeight } from "../../../actions/userActions";
 
-const WeightForm = () => {
+const WeightForm = props => {
+  const [weight, setWeight] = useState(0);
+
+  const handleChange = (event) => {
+    setWeight(parseInt(event.target.value))
+  };
+
+  const handleSubmit = event => {
+    props.addUserWeight(weight);
+  };
+
   return (
     <Modal
       size="mini"
@@ -13,8 +24,14 @@ const WeightForm = () => {
       <Modal.Header>Add Today's Weight</Modal.Header>
       <Modal.Content>
         <Modal.Description>
-          <Form>
-            <Form.Field label="Weight" control="input" type="number" />
+          <Form onSubmit={handleSubmit}>
+            <Form.Field
+              name="weight"
+              label="Weight"
+              control="input"
+              type="number"
+              onChange={handleChange}
+            />
             <Form.Field>
               <Button type="submit">Submit</Button>
             </Form.Field>
@@ -25,4 +42,10 @@ const WeightForm = () => {
   );
 };
 
-export default WeightForm;
+let mapDispatchToProps = (dispatch) => {
+  return {
+    addUserWeight: (weight) => dispatch(addUserWeight(weight))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(WeightForm);

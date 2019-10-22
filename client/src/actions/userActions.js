@@ -3,7 +3,9 @@ import { api_url } from "../commons/api_url";
 export function fetchUser(id) {
   return dispatch => {
     dispatch({ type: "LOADING" });
-    return fetch(`${api_url}users/${id}`)
+    return fetch(`${api_url}users/${id}`, {
+      headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}
+    })
       .then(response => {
         return response.json();
       })
@@ -28,6 +30,7 @@ export function loginAction(formData) {
       })
       .then(responseJSON => {
         localStorage.setItem("token", responseJSON.token);
+        localStorage.setItem("currentUserId", responseJSON.id)
         dispatch({ type: "LOGIN", payload: responseJSON });
       });
   };
@@ -47,8 +50,31 @@ export function signupAction(formData) {
         return response.json();
       })
       .then(responseJSON => {
-        
         dispatch({ type: "SIGNUP", payload: responseJSON });
+      });
+  };
+}
+
+export function addUserWeight(weight) {
+  return dispatch => {
+    dispatch({ type: "LOADING" });
+    return fetch(`${api_url}users/weights`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ weight })
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(responseJSON => {
+        if (!responseJSON.error) {
+          dispatch({ type: "ADD_CURRENT_USER_WEIGHT", payload: weight });
+        } else{
+          console.log(responseJSON.error)
+        }
       });
   };
 }

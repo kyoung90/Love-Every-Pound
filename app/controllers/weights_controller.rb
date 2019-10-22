@@ -31,7 +31,7 @@ class WeightsController < ApplicationController
                 render :json => {error: "Can't submit multiple weights for one day."}
             end
         else 
-            weight = Weight.create(user_id: current_user.id, weight: params[:weight])
+            weight = Weight.create(user_id: current_user.id, weight: params["weight"])
             current_user.weights << weight 
             current_user.save  
             render :json => {message: "Created weight successfully"}

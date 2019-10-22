@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, Select, Dropdown, Container } from "semantic-ui-react";
+import { Form, Button, Select, Dropdown } from "semantic-ui-react";
 
 const options = [
   { key: "f", text: "Fitness", value: "fitness" },
