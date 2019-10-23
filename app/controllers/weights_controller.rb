@@ -20,22 +20,41 @@ class WeightsController < ApplicationController
     end
 
     def create
-        if current_user.weights.last 
+        givenDay = Date.parse(params[:date])
+        if givenDay && givenDay < Time.now.end_of_day
+            weight = Weight.find_by(created_at: givenDay.beginning_of_day..givenDay.end_of_day)
 
-            if current_user.weights.last.created_at < Time.now.beginning_of_day
-                weight = Weight.create(user_id: current_user.id, weight: params[:weight])
-                current_user.weights << weight 
-                current_user.save 
-                render :json => {message: "Created weight successfully"} 
-            else
+            if weight 
                 render :json => {error: "Can't submit multiple weights for one day."}
+            else 
+                weight = Weight.create(user_id: current_user.id, weight: params["weight"])
+                weight.created_at = givenDay
+                weight.save
+                current_user.weights << weight 
+                current_user.save  
+                render :json => weight
             end
         else 
-            weight = Weight.create(user_id: current_user.id, weight: params["weight"])
-            current_user.weights << weight 
-            current_user.save  
-            render :json => {message: "Created weight successfully"}
+            render :json => {error: "Can't submit weight for date in the future"}
         end
+       
+        # only allow to create today
+        # if current_user.weights.last 
+
+        #     if current_user.weights.last.created_at < Time.now.beginning_of_day
+        #         weight = Weight.create(user_id: current_user.id, weight: params[:weight])
+        #         current_user.weights << weight 
+        #         current_user.save 
+        #         render :json => {message: "Created weight successfully"} 
+        #     else
+        #         render :json => {error: "Can't submit multiple weights for one day."}
+        #     end
+        # else 
+            # weight = Weight.create(user_id: current_user.id, weight: params["weight"])
+            # current_user.weights << weight 
+            # current_user.save  
+            # render :json => {message: "Created weight successfully"}
+        # end
     end
 
     def destroy

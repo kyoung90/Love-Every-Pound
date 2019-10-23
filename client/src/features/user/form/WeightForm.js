@@ -17,9 +17,11 @@ const WeightForm = props => {
   return (
     <Modal
       size="mini"
-      trigger={<Button primary circular className="info" icon="plus"></Button>}
+      // trigger={<Button primary circular className="info" icon="plus"></Button>}
       centered={false}
       closeIcon
+      open={props.modalOpen}
+      onClose={() => props.setModalOpen(false)}
     >
       <Modal.Header>Add Today's Weight</Modal.Header>
       <Modal.Content>
