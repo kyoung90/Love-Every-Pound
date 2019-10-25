@@ -9,13 +9,11 @@ import "@fullcalendar/daygrid/main.css";
 
 import { connect } from "react-redux";
 import WeightForm from "./form/WeightForm";
-import { addUserWeight, updateUserWeight } from "../../actions/userActions";
-
-let today = new Date();
-let yesterday = new Date();
-let tomorrow = new Date();
-yesterday.setDate(yesterday.getDate() - 1);
-tomorrow.setDate(tomorrow.getDate() + 1);
+import {
+  addUserWeight,
+  updateUserWeight,
+  deleteUserWeight
+} from "../../actions/userActions";
 
 const WeightCalendar = props => {
   const calendarComponentRef = React.createRef();
@@ -37,6 +35,10 @@ const WeightCalendar = props => {
     }
   }, [setCalendarEvents, props.currentUser]);
 
+  const handleChange = event => {
+    setWeight({ ...weight, weight: parseInt(event.target.value) });
+  };
+
   const handleDateClick = arg => {
     if (arg.date <= new Date()) {
       setWeight({
@@ -49,8 +51,14 @@ const WeightCalendar = props => {
     }
   };
 
-  const handleChange = event => {
-    setWeight({ ...weight, weight: parseInt(event.target.value) });
+  const handleEventClick = event => {
+    setWeight({
+      id: event.event.id,
+      weight: parseInt(event.event.title.split(" ")[0]),
+      date: event.event.start.toString()
+    });
+
+    setModalOpen(true);
   };
 
   const handleSubmit = event => {
@@ -63,15 +71,9 @@ const WeightCalendar = props => {
     }
   };
 
-  const handleEventClick = event => {
-    setWeight({
-      id: event.event.id,
-      weight: parseInt(event.event.title.split(" ")[0]),
-      date: event.event.start.toString()
-    });
-
-    setModalOpen(true);
-  };
+  const handleDelete = event => {
+    props.deleteUserWeight(weight.id)
+  }
 
   return (
     <>
@@ -99,6 +101,7 @@ const WeightCalendar = props => {
         weight={weight}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
+        handleDelete={handleDelete}
       />
     </>
   );
@@ -113,7 +116,8 @@ let mapStateToProps = state => {
 let mapDispatchToProps = dispatch => {
   return {
     addUserWeight: weight => dispatch(addUserWeight(weight)),
-    updateUserWeight: (id, weight) => dispatch(updateUserWeight(id, weight))
+    updateUserWeight: (id, weight) => dispatch(updateUserWeight(id, weight)),
+    deleteUserWeight: id => dispatch(deleteUserWeight(id))
   };
 };
 

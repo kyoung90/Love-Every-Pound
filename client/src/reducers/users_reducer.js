@@ -21,6 +21,12 @@ export default function usersReducer(
       return { ...state, loading: false, currentUser: user };
     case "UPDATE_CURRENT_USER_WEIGHT":
       return { ...state, loading: false, currentUser: action.payload };
+    case "DELETE_CURRENT_USER_WEIGHT":
+      return {
+        ...state,
+        loading: false,
+        currentUser: user.weights.filter(weight => weight.id != action.payload)
+      };
     default:
       return state;
   }

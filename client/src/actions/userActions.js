@@ -4,7 +4,7 @@ export function fetchUser(id) {
   return dispatch => {
     dispatch({ type: "LOADING" });
     return fetch(`${api_url}users/${id}`, {
-      headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
     })
       .then(response => {
         return response.json();
@@ -30,7 +30,7 @@ export function loginAction(formData) {
       })
       .then(responseJSON => {
         localStorage.setItem("token", responseJSON.token);
-        localStorage.setItem("currentUserId", responseJSON.id)
+        localStorage.setItem("currentUserId", responseJSON.id);
         dispatch({ type: "LOGIN", payload: responseJSON });
       });
   };
@@ -72,14 +72,14 @@ export function addUserWeight(weight) {
       .then(responseJSON => {
         if (!responseJSON.error) {
           dispatch({ type: "ADD_CURRENT_USER_WEIGHT", payload: responseJSON });
-        } else{
-          console.log(responseJSON.error)
+        } else {
+          console.log(responseJSON.error);
         }
       });
   };
 }
 
-export function updateUserWeight(id, weight){
+export function updateUserWeight(id, weight) {
   return dispatch => {
     dispatch({ type: "LOADING" });
     return fetch(`${api_url}users/weights/${id}`, {
@@ -88,16 +88,41 @@ export function updateUserWeight(id, weight){
         Authorization: `Bearer ${localStorage.getItem("token")}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({weight: weight})
+      body: JSON.stringify({ weight: weight })
     })
       .then(response => {
         return response.json();
       })
       .then(responseJSON => {
         if (!responseJSON.error) {
-          dispatch({ type: "UPDATE_CURRENT_USER_WEIGHT", payload: responseJSON });
-        } else{
-          console.log(responseJSON.error)
+          dispatch({
+            type: "UPDATE_CURRENT_USER_WEIGHT",
+            payload: responseJSON
+          });
+        } else {
+          console.log(responseJSON.error);
+        }
+      });
+  };
+}
+
+export function deleteUserWeight(id) {
+  return dispatch => {
+    dispatch({ type: "LOADING" });
+    return fetch(`${api_url}users/weights/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(responseJSON => {
+        if (!responseJSON.error) {
+          dispatch({ type: "DELETE_CURRENT_USER_WEIGHT", payload: id });
+        } else {
+          console.log(responseJSON.error);
         }
       });
   };

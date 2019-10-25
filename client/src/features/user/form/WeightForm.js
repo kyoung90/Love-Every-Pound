@@ -25,7 +25,14 @@ const WeightForm = props => {
               value={props.weight.weight}
             />
             <Form.Field>
-              <Button type="submit">Submit</Button>
+              {props.weight.id ? (
+                <>
+                  <Button type="submit">Update</Button>
+                  <Button onClick={props.handleDelete}>Delete</Button>
+                </>
+              ) : (
+                <Button type="submit">Create</Button>
+              )}
             </Form.Field>
           </Form>
         </Modal.Description>
