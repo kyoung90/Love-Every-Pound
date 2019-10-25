@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import "../../App.css";
@@ -9,6 +9,7 @@ import "@fullcalendar/daygrid/main.css";
 
 import { connect } from "react-redux";
 import WeightForm from "./form/WeightForm";
+import { addUserWeight, updateUserWeight } from "../../actions/userActions";
 
 let today = new Date();
 let yesterday = new Date();
@@ -19,56 +20,59 @@ tomorrow.setDate(tomorrow.getDate() + 1);
 const WeightCalendar = props => {
   const calendarComponentRef = React.createRef();
   const [calendarWeekends, setCalendarWeekends] = useState(true);
-  const [calendarEvents, setCalendarEvents] = useState(
-    props.weights
-      ? props.weights.map(weight => ({
-          id: weight.id,
-          title: `${weight.weight} ${props.currentUser.weight_unit}`,
-          allDay: true,
-          date: new Date(weight.created_at)
-        }))
-      : [{ id: "11", title: "158 lb", date: tomorrow, allDay: true }]
-  );
+  const [calendarEvents, setCalendarEvents] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
 
   const [weight, setWeight] = useState({});
 
+  useEffect(() => {
+    if (props.currentUser && props.currentUser.weights) {
+      let events = props.currentUser.weights.map(weight => ({
+        id: weight.id,
+        title: `${weight.weight} ${props.currentUser.weight_unit}`,
+        allDay: true,
+        date: new Date(weight.created_at)
+      }));
+      setCalendarEvents(events);
+    }
+  }, [setCalendarEvents, props.currentUser]);
+
   const handleDateClick = arg => {
-    // bind with an arrow function
-    console.log(arg.date);
-    console.log(new Date());
-    // arg > new Date()
     if (arg.date <= new Date()) {
+      setWeight({
+        weight: 0,
+        date: arg.date.toString()
+      });
       setModalOpen(true);
     } else {
-      console.log("Can't add weight in the future")
+      console.log("Can't add weight in the future");
     }
   };
 
-  // const handleDateClick = arg => {
-  //   this.setState({
-  //     // add new event data
-  //     calendarEvents: calendarEvents.concat({
-  //       // creates a new array
-  //       title: "160 lb",
-  //       start: arg.date,
-  //       allDay: arg.allDay
-  //     })
-  //   });
-  // };
+  const handleChange = event => {
+    setWeight({ ...weight, weight: parseInt(event.target.value) });
+  };
 
-  // state = {
-  //   calendarWeekends: true,
-  //   calendarEvents: [
-  //     ,
+  const handleSubmit = event => {
+    if (weight.id) {
+      props.updateUserWeight(weight.id, weight.weight);
+      setModalOpen(false);
+    } else {
+      props.addUserWeight(weight);
+      setModalOpen(false);
+    }
+  };
 
-  //     // initial event data
-  //     // { id: "9", title: "159 lb", date: yesterday, allDay: true },
-  //     // { id: "10", title: "160 lb", date: today, allDay: true },
+  const handleEventClick = event => {
+    setWeight({
+      id: event.event.id,
+      weight: parseInt(event.event.title.split(" ")[0]),
+      date: event.event.start.toString()
+    });
 
-  //     { id: "11", title: "158 lb", date: tomorrow, allDay: true }
-  //   ]
-  // };
+    setModalOpen(true);
+  };
+
   return (
     <>
       <FullCalendar
@@ -87,23 +91,15 @@ const WeightCalendar = props => {
         eventColor="#FFFFFF"
         displayEventTime={false}
         dateClick={handleDateClick}
-        eventClick={info => {
-          console.log(info)
-          setWeight();
-          setModalOpen(true);
-          // alert("Event: " + info.event.id);
-          // let { title, id, start } = info.event;
-          // console.log(`${title} - ${id} - ${start} `);
-          // console.log(calendarEvents);
-          // let events = calendarEvents.filter(event => event.id !== id);
-          // events.push({ id: id, title: "160 lb", date: start });
-          // setCalendarEvents(events);
-
-          // change the border color just for fun
-          //   info.el.style.borderColor = "red";
-        }}
+        eventClick={handleEventClick}
       />
-      <WeightForm modalOpen={modalOpen} setModalOpen={setModalOpen} />
+      <WeightForm
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        weight={weight}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+      />
     </>
   );
 };
@@ -115,12 +111,13 @@ let mapStateToProps = state => {
 };
 
 let mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    addUserWeight: weight => dispatch(addUserWeight(weight)),
+    updateUserWeight: (id, weight) => dispatch(updateUserWeight(id, weight))
+  };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(WeightCalendar);
-
-// import "./styles.css";

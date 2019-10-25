@@ -29,7 +29,7 @@ const WeightDisplay = (props) => {
       </Grid.Column>
       <Grid.Column>
         <Segment className="weight-chart">
-          <WeightCalendar weights={props.currentUser ? props.currentUser.weights : []} onChange={handleChange} value={date} />
+          <WeightCalendar onChange={handleChange} value={date} />
         </Segment>
       </Grid.Column>
     </Grid>

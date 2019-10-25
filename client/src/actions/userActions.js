@@ -64,14 +64,38 @@ export function addUserWeight(weight) {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ weight })
+      body: JSON.stringify(weight)
     })
       .then(response => {
         return response.json();
       })
       .then(responseJSON => {
         if (!responseJSON.error) {
-          dispatch({ type: "ADD_CURRENT_USER_WEIGHT", payload: weight });
+          dispatch({ type: "ADD_CURRENT_USER_WEIGHT", payload: responseJSON });
+        } else{
+          console.log(responseJSON.error)
+        }
+      });
+  };
+}
+
+export function updateUserWeight(id, weight){
+  return dispatch => {
+    dispatch({ type: "LOADING" });
+    return fetch(`${api_url}users/weights/${id}`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({weight: weight})
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(responseJSON => {
+        if (!responseJSON.error) {
+          dispatch({ type: "UPDATE_CURRENT_USER_WEIGHT", payload: responseJSON });
         } else{
           console.log(responseJSON.error)
         }

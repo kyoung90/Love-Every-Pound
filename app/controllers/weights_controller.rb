@@ -20,9 +20,9 @@ class WeightsController < ApplicationController
     end
 
     def create
-        givenDay = Date.parse(params[:date])
+        givenDay = Date.parse(params[:date]) + 12.hour
         if givenDay && givenDay < Time.now.end_of_day
-            weight = Weight.find_by(created_at: givenDay.beginning_of_day..givenDay.end_of_day)
+            weight = Weight.find_by(user_id: current_user.id, created_at: givenDay.beginning_of_day..givenDay.end_of_day)
 
             if weight 
                 render :json => {error: "Can't submit multiple weights for one day."}
