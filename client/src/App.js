@@ -34,7 +34,7 @@ function App() {
         rightItems={rightItems}
         loggedInRightItems={loggedInRightItems}
       >
-        <Container className="main-container" textAlign="center">
+        <div className="main-container" textAlign="center">
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/about" render={() => <About />} />
