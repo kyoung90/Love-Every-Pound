@@ -1,47 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ResponsiveLine } from "@nivo/line";
 import { connect } from "react-redux";
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// const data = [
-//   {
-//     id: "Weight",
-//     color: "hsl(166, 45%, 72%)",
-//     data: [
-//       {
-//         x: "25",
-//         y: 162
-//       },
-//       {
-//         x: "26",
-//         y: 161
-//       },
-//       {
-//         x: "27",
-//         y: 163
-//       },
-//       {
-//         x: "28",
-//         y: 165
-//       },
-//       {
-//         x: "29",
-//         y: 166
-//       },
-//       {
-//         x: "30",
-//         y: 166
-//       },
-//       {
-//         x: "31",
-//         y: 165
-//       }
-//     ]
-//   }
-// ];
-// you'll often use just a few of them.
+
 const WeightChart = props => {
   const [weights, setWeights] = useState([
     {
@@ -87,7 +47,9 @@ const WeightChart = props => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: `Weight ${props.currentUser ? "(" + props.currentUser.weight_unit + "s)" : ""}`,
+        legend: `Weight ${
+          props.currentUser ? "(" + props.currentUser.weight_unit + "s)" : ""
+        }`,
         legendOffset: -40,
         legendPosition: "middle"
       }}
@@ -145,7 +107,8 @@ const WeightChart = props => {
               >
                 <strong>Date</strong>: {point.data.xFormatted}
                 <br />
-                <strong>{point.serieId}</strong>: {point.data.yFormatted} {props.currentUser ? props.currentUser.weight_unit : ""}
+                <strong>{point.serieId}</strong>: {point.data.yFormatted}{" "}
+                {props.currentUser ? props.currentUser.weight_unit : ""}
               </div>
             ))}
           </div>

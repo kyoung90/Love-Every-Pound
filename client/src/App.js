@@ -11,6 +11,7 @@ import Profile from "./features/user/Profile";
 import SettingsForm from "./features/user/form/SettingsForm";
 import Login from "./features/user/form/Login";
 import Signup from "./features/user/form/Signup";
+import NotFound from "./commons/NotFound"
 import { leftItems, rightItems, loggedInRightItems } from "./commons/lists";
 import { connect } from "react-redux";
 
@@ -52,7 +53,7 @@ function App() {
             {/* <Route exact path="/weights/new" render={() => <h1>Weight Form</h1>} /> */}
             {generateLoginSignupRoutes()}
 
-            <Route render={() => <h1>Error!</h1>} />
+            <Route render={() => <NotFound />} />
           </Switch>
         </Container>
       </Navbar>
