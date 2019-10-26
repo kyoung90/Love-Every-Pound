@@ -1,87 +1,127 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import "../../App.css"
-// import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
+import "../../App.css";
+import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 
 import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
-let today = new Date();
-let yesterday = new Date();
-let tomorrow = new Date()
-  yesterday.setDate(yesterday.getDate() - 1);
-  tomorrow.setDate(tomorrow.getDate() + 1)
 
-class WeightCalendar extends Component {
-  calendarComponentRef = React.createRef();
-  
-  state = {
-    calendarWeekends: true,
-    calendarEvents: [
-      // initial event data
-      { id: "9", title: "159 lb", date: yesterday, allDay: true },
-      { id: "10", title: "160 lb", date: today, allDay: true },
-      
-      { id: "11", title: "158 lb", date: tomorrow, allDay: true }
-      
+import { connect } from "react-redux";
+import WeightForm from "./form/WeightForm";
+import {
+  addUserWeight,
+  updateUserWeight,
+  deleteUserWeight
+} from "../../actions/userActions";
 
-    ]
+const WeightCalendar = props => {
+  const calendarComponentRef = React.createRef();
+  const [calendarWeekends, setCalendarWeekends] = useState(true);
+  const [calendarEvents, setCalendarEvents] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const [weight, setWeight] = useState({});
+
+  useEffect(() => {
+    if (props.currentUser && props.currentUser.weights) {
+      let events = props.currentUser.weights.map(weight => ({
+        id: weight.id,
+        title: `${weight.weight} ${props.currentUser.weight_unit}`,
+        allDay: true,
+        date: new Date(weight.created_at)
+      }));
+      setCalendarEvents(events);
+    }
+  }, [setCalendarEvents, props.currentUser]);
+
+  const handleChange = event => {
+    setWeight({ ...weight, weight: parseInt(event.target.value) });
   };
 
-  render() {
-    return (
-      <div className="demo-app">
-        <div className="demo-app-top" />
-        <div className="demo-app-calendar">
-          <FullCalendar
-          themeSystem="dark"
-            defaultView="dayGridMonth"
-            header={{
-              left: "prev",
-              center: "title",
-              right:"next"
-            }}
-            plugins={[dayGridPlugin]}
-            ref={this.calendarComponentRef}
-            weekends={this.state.calendarWeekends}
-            events={this.state.calendarEvents}
-            eventColor="#FFFFFF"
-            displayEventTime={false}
-            eventClick={(info) => {
-              alert("Event: " + info.event.id);
-              let { title, id, start } = info.event;
-              console.log(`${title} - ${id} - ${start} `);
-              console.log(this.state.calendarEvents)
-              let events = this.state.calendarEvents.filter(
-                event => event.id !== id
-              );
-              events.push({ id: id, title: "160 lb", date: start });
-              this.setState({ ...this.state, calendarEvents: events });
+  const handleDateClick = arg => {
+    if (arg.date <= new Date()) {
+      setWeight({
+        weight: 0,
+        date: arg.date.toString()
+      });
+      setModalOpen(true);
+    } else {
+      console.log("Can't add weight in the future");
+    }
+  };
 
-              // change the border color just for fun
-            //   info.el.style.borderColor = "red";
-            }}
-          />
-        </div>
-      </div>
-    );
+  const handleEventClick = event => {
+    setWeight({
+      id: event.event.id,
+      weight: parseInt(event.event.title.split(" ")[0]),
+      date: event.event.start.toString()
+    });
+
+    setModalOpen(true);
+  };
+
+  const handleSubmit = event => {
+    if (weight.id) {
+      props.updateUserWeight(weight.id, weight.weight);
+      setModalOpen(false);
+    } else {
+      props.addUserWeight(weight);
+      setModalOpen(false);
+    }
+  };
+
+  const handleDelete = event => {
+    props.deleteUserWeight(weight.id)
   }
 
-  handleDateClick = arg => {
-   
-      this.setState({
-        // add new event data
-        calendarEvents: this.state.calendarEvents.concat({
-          // creates a new array
-          title: "160 lb",
-          start: arg.date,
-          allDay: arg.allDay
-        })
-      });
-    
+  return (
+    <>
+      <FullCalendar
+        selectable={false}
+        themeSystem="dark"
+        defaultView="dayGridMonth"
+        header={{
+          left: "prev",
+          center: "title",
+          right: "next"
+        }}
+        plugins={[dayGridPlugin, interactionPlugin]}
+        ref={calendarComponentRef}
+        weekends={calendarWeekends}
+        events={calendarEvents}
+        eventColor="#FFFFFF"
+        displayEventTime={false}
+        dateClick={handleDateClick}
+        eventClick={handleEventClick}
+      />
+      <WeightForm
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        weight={weight}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        handleDelete={handleDelete}
+      />
+    </>
+  );
+};
+
+let mapStateToProps = state => {
+  return {
+    currentUser: state.users.currentUser
   };
-}
+};
 
-export default WeightCalendar;
+let mapDispatchToProps = dispatch => {
+  return {
+    addUserWeight: weight => dispatch(addUserWeight(weight)),
+    updateUserWeight: (id, weight) => dispatch(updateUserWeight(id, weight)),
+    deleteUserWeight: id => dispatch(deleteUserWeight(id))
+  };
+};
 
-// import "./styles.css";
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WeightCalendar);

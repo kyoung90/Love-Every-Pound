@@ -1,22 +1,38 @@
 import React from "react";
-import { Button, Header, Icon, Modal, Form, Image } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Button, Modal, Form, Label } from "semantic-ui-react";
 
-const WeightForm = () => {
+const WeightForm = props => {
   return (
     <Modal
       size="mini"
-      trigger={<Button primary circular className="info" icon="plus"></Button>}
+      // trigger={<Button primary circular className="info" icon="plus"></Button>}
       centered={false}
       closeIcon
+      open={props.modalOpen}
+      onClose={() => props.setModalOpen(false)}
     >
-      <Modal.Header>Add Today's Weight</Modal.Header>
+      {/* <Modal.Header>Add Weight</Modal.Header> */}
       <Modal.Content>
         <Modal.Description>
-          <Form>
-            <Form.Field label="Weight" control="input" type="number" />
+          <Form onSubmit={props.handleSubmit}>
+            <Label name="date">{props.weight.date}</Label>
+            <Form.Field
+              name="weight"
+              label="Weight"
+              control="input"
+              type="number"
+              onChange={props.handleChange}
+              value={props.weight.weight}
+            />
             <Form.Field>
-              <Button type="submit">Submit</Button>
+              {props.weight.id ? (
+                <>
+                  <Button type="submit">Update</Button>
+                  <Button onClick={props.handleDelete}>Delete</Button>
+                </>
+              ) : (
+                <Button type="submit">Create</Button>
+              )}
             </Form.Field>
           </Form>
         </Modal.Description>

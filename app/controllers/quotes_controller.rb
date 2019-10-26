@@ -5,8 +5,8 @@ class QuotesController < ApplicationController
         preference = current_user.preferences.sample
 
         if preference 
-            quote = Quote.where(preference_id: preference.id).sample 
-            render json: quote
+            quote = preference.quotes.sample
+            render :json => quote
         else 
             quote = Quote.all.sample
             render json: quote

@@ -4,11 +4,24 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
+import rootReducer from "./reducers/index";
+import thunk from "redux-thunk";
+
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+
+import ScrollToTop from "./commons/ScrollToTop";
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 

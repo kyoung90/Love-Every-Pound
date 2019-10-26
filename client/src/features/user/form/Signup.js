@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Form,
-  Dropdown,
   Button,
   Grid,
   Segment,
@@ -10,23 +9,52 @@ import {
   Select
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchPreferences } from "../../../actions/preferenceActions";
+import { signupAction } from "../../../actions/userActions";
 
-const options = [
-  { key: "f", text: "Fitness", value: "fitness" },
-  { key: "s", text: "Self Love", value: "self love" },
-  { key: "p", text: "Positive Affirmation", value: "positive affirmation" },
-  { key: "i", text: "Inspirational", value: "inspirational" }
-];
+// const options = [
+//   { key: "f", id="1", text: "Fitness", value: "fitness" },
+//   { key: "s", id="2", text: "Self Love", value: "self love" },
+//   { key: "p", id="3", text: "Positive Affirmation", value: "positive affirmation" },
+//   { key: "i", id="4", text: "Inspirational", value: "inspirational" }
+// ];
 
 const weights = [
   { key: "l", text: "Lbs", value: "lb" },
   { key: "k", text: "Kgs", value: "kg" }
 ];
 
-const Signup = () => {
+const Signup = props => {
   //   const { value } = this.state;
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+    weight_unit: "",
+    preference_ids: []
+  });
 
-  const handleChange = event => {};
+  useEffect(() => {
+    props.fetchPreferences();
+  }, [props]);
+
+  const options = props.preferences.map(preference => {
+    return { key: preference.id, text: preference.name, value: preference.id };
+  });
+
+  const handleChange = (event, data) => {
+    setUser({
+      ...user,
+      [data.name]: data.value
+    });
+  };
+
+  const handleSubmit = () => {
+    props.signup({ user });
+    props.history.push("/login");
+  };
 
   return (
     <Grid textAlign="center" style={{ height: "70vh" }} verticalAlign="middle">
@@ -34,19 +62,23 @@ const Signup = () => {
         <Header as="h2" className="info-text" textAlign="center">
           Create an account
         </Header>
-        <Form size="large">
+        <Form size="large" onSubmit={handleSubmit}>
           <Segment stacked>
             <Form.Input
               fluid
               icon="users"
               iconPosition="left"
               placeholder="Username"
+              name="username"
+              onChange={handleChange}
             />
             <Form.Input
               fluid
               icon="user"
               iconPosition="left"
               placeholder="E-mail address"
+              name="email"
+              onChange={handleChange}
             />
             <Form.Input
               fluid
@@ -54,6 +86,8 @@ const Signup = () => {
               iconPosition="left"
               placeholder="Password"
               type="password"
+              name="password"
+              onChange={handleChange}
             />
             <Form.Input
               fluid
@@ -61,12 +95,16 @@ const Signup = () => {
               iconPosition="left"
               placeholder="Confirm Password"
               type="password"
+              name="confirm_password"
+              onChange={handleChange}
             />
             <Form.Field
               label="Preferred Weight Unit"
               control={Select}
               options={weights}
               placeholder="Lbs"
+              name="weight_unit"
+              onChange={handleChange}
             />
             {/* <Form.Group grouped>
               <label>Weight Unit</label>
@@ -93,11 +131,19 @@ const Signup = () => {
               multiple
               selection
               options={options}
+              name="preference_ids"
+              onChange={handleChange}
             />
             <br />
 
-            <Button className="success" fluid size="large" inverted>
-              Login
+            <Button
+              type="submit"
+              className="success"
+              fluid
+              size="large"
+              inverted
+            >
+              Sign Up
             </Button>
           </Segment>
         </Form>
@@ -106,62 +152,23 @@ const Signup = () => {
         </Message>
       </Grid.Column>
     </Grid>
-
-    // <Grid centered columns="twelve">
-    //   <Grid.Row>
-    //     <Grid.Column width="four">
-    //       <Form>
-    //         <Form.Input fluid label="Username" placeholder="Username" />
-    //         <Form.Input fluid label="Email" placeholder="Email" />
-
-    //         <Form.Input
-    //           fluid
-    //           label="Password"
-    //           placeholder="Password"
-    //           type="password"
-    //         />
-    // <Form.Input
-    //   fluid
-    //   label="Confirm Password"
-    //   placeholder="Confirm Password"
-    //   type="password"
-    // />
-    // <Form.Group grouped>
-    //   <label>Weight Unit</label>
-    //   <Form.Group inline>
-    //     <Form.Radio
-    //       label="Lbs."
-    //       value="lb"
-    //       //   checked={value === "lb"}
-    //       onChange={handleChange}
-    //     />
-    //     <Form.Radio
-    //       label="Kgs."
-    //       value="kg"
-    //       //   checked={value === "kg"}
-    //       onChange={handleChange}
-    //     />
-    //   </Form.Group>
-    // </Form.Group>
-
-    // <Dropdown
-    //   placeholder="Quote Preference"
-    //   fluid
-    //   multiple
-    //   selection
-    //   options={options}
-    // />
-
-    //         <br />
-    // <Button animated="fade" color="purple">
-    //   <Button.Content visible> Sign Up </Button.Content>
-    //   <Button.Content hidden> Love Yourself </Button.Content>
-    // </Button>
-    //       </Form>
-    //     </Grid.Column>
-    //   </Grid.Row>
-    // </Grid>
   );
 };
 
-export default Signup;
+let mapStateToProps = state => {
+  return {
+    preferences: state.preferences.preferences
+  };
+};
+
+let mapDispatchToProps = dispatch => {
+  return {
+    fetchPreferences: () => dispatch(fetchPreferences()),
+    signup: (formData) => dispatch(signupAction(formData))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Signup);

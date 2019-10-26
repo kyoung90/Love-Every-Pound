@@ -15,6 +15,7 @@ positive_affirmation = Preference.create(name: "Positive Affirmation")
 john = User.create(username: "john doe", email: "john@doe.com", password: "topsecret", password_confirmation: "topsecret", weight_unit: "lb")
 john.preferences << fitness
 
+# fitness
 arnold = Author.create(name: "Arnold Schwarzenegger")
 henry = Author.create(name: "Henry David Thoreau")
 michael = Author.create(name: "Michael John Bobak")
@@ -57,3 +58,5 @@ fitness_quote17 = Quote.create(content: "If you want something you’ve never ha
 fitness_quote18 = Quote.create(content: "You have to think it before you can do it. The mind is what makes it all possible.", author_id: kai.id, preference_id: fitness.id)
 fitness_quote19 = Quote.create(content: "Things work out best for those who make the best of how things work out.", author_id: john.id, preference_id: fitness.id)
 fitness_quote20 = Quote.create(content: "Success is walking from failure to failure with no loss of enthusiasm.", author_id: winston.id, preference_id: fitness.id)
+
+# inspiration
