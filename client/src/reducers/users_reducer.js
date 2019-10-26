@@ -2,7 +2,6 @@ export default function usersReducer(
   state = { loading: false, currentUser: null },
   action
 ) {
-  let user = Object.assign({}, state.currentUser);
   switch (action.type) {
     case "LOADING":
       return { ...state, loading: true };
@@ -17,6 +16,7 @@ export default function usersReducer(
     case "SIGNUP":
       return { ...state, loading: false };
     case "ADD_CURRENT_USER_WEIGHT":
+      let user = Object.assign({}, state.currentUser);
       user.weights.push(action.payload);
       return { ...state, loading: false, currentUser: user };
     case "UPDATE_CURRENT_USER_WEIGHT":
@@ -25,7 +25,9 @@ export default function usersReducer(
       return {
         ...state,
         loading: false,
-        currentUser: user.weights.filter(weight => weight.id != action.payload)
+        currentUser: state.currentUser.weights.filter(
+          weight => weight.id != action.payload
+        )
       };
     default:
       return state;

@@ -22,9 +22,7 @@ const WeightDisplay = props => {
     <Grid columns={2} stackable={true} centered={true} textAlign="center">
       <Grid.Column>
         <Segment className="weight-chart">
-          <WeightChart
-            weights={props.currentUser ? props.currentUser.weights : []}
-          />
+          <WeightChart />
         </Segment>
       </Grid.Column>
       <Grid.Column>
