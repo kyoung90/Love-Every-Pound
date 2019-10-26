@@ -187,4 +187,4 @@ quotes = [
     {content: "My life is just beginning.", author_id: carmen.id, preference_id: positive_affirmation.id}
 ]
 
-# Quote.create(quotes)
+Quote.create(quotes)

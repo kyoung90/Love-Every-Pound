@@ -22,8 +22,9 @@ const Login = props => {
   };
 
   const handleSubmit = () => {
-    props.login({user});
-    props.history.push("/quote")
+    props.login({ user }).then(() => {
+      props.history.push("/quote");
+    });
   };
 
   return (
@@ -73,7 +74,7 @@ const Login = props => {
 };
 
 let mapStateToProps = state => {
-  return {current_user: state.users.current_user};
+  return { current_user: state.users.current_user };
 };
 
 let mapDispatchToProps = dispatch => {

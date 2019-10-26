@@ -62,6 +62,7 @@ const WeightCalendar = props => {
   };
 
   const handleSubmit = event => {
+    event.preventDefault()
     if (weight.id) {
       props.updateUserWeight(weight.id, weight.weight);
       setModalOpen(false);
@@ -72,7 +73,9 @@ const WeightCalendar = props => {
   };
 
   const handleDelete = event => {
+    event.preventDefault()
     props.deleteUserWeight(weight.id)
+    setModalOpen(false)
   }
 
   return (
@@ -109,7 +112,8 @@ const WeightCalendar = props => {
 
 let mapStateToProps = state => {
   return {
-    currentUser: state.users.currentUser
+    currentUser: state.users.currentUser,
+    loading: state.users.loading
   };
 };
 

@@ -4,6 +4,7 @@ import WeightChart from "./WeightChart";
 import { Grid, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { fetchUser } from "../../actions/userActions";
+import LoadingScreen from "../../commons/LoadingScreen";
 
 const WeightDisplay = props => {
   const [date, setDate] = useState(new Date());
@@ -17,6 +18,9 @@ const WeightDisplay = props => {
   const handleChange = event => {
     setDate(event.target.value);
   };
+  if (props.loading){
+    return (<LoadingScreen content="Retrieving User Data"/>)
+  }
 
   return (
     <Grid columns={2} stackable={true} centered={true} textAlign="center">

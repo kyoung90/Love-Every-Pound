@@ -16,18 +16,14 @@ export default function usersReducer(
     case "SIGNUP":
       return { ...state, loading: false };
     case "ADD_CURRENT_USER_WEIGHT":
-      let user = Object.assign({}, state.currentUser);
-      user.weights.push(action.payload);
-      return { ...state, loading: false, currentUser: user };
+      return { ...state, loading: false, currentUser: action.payload };
     case "UPDATE_CURRENT_USER_WEIGHT":
       return { ...state, loading: false, currentUser: action.payload };
     case "DELETE_CURRENT_USER_WEIGHT":
       return {
         ...state,
         loading: false,
-        currentUser: state.currentUser.weights.filter(
-          weight => weight.id != action.payload
-        )
+        currentUser: action.payload
       };
     default:
       return state;

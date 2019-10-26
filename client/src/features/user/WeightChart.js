@@ -12,7 +12,6 @@ const WeightChart = props => {
   ]);
 
   useEffect(() => {
-    console.log("INSIDE USE EFFECT");
     if (props.currentUser && props.currentUser.weights) {
       let data = props.currentUser.weights
         .sort((a, b) => new Date(a.created_at) - new Date(b.created_at))

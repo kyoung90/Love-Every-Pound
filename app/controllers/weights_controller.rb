@@ -32,7 +32,7 @@ class WeightsController < ApplicationController
                 weight.save
                 current_user.weights << weight 
                 current_user.save  
-                render :json => weight
+                render :json => current_user
             end
         else 
             render :json => {error: "Can't submit weight for date in the future"}
@@ -63,7 +63,7 @@ class WeightsController < ApplicationController
         if weight 
             if weight.user_id == current_user.id
                 weight.destroy
-                render :json => {message: "Deleted successfully"}
+                render :json => current_user
             else 
                 render :json => {error: "You cannot delete a weight that is not yours."}
             end

@@ -120,10 +120,20 @@ export function deleteUserWeight(id) {
       })
       .then(responseJSON => {
         if (!responseJSON.error) {
-          dispatch({ type: "DELETE_CURRENT_USER_WEIGHT", payload: id });
+          dispatch({ type: "DELETE_CURRENT_USER_WEIGHT", payload: responseJSON });
         } else {
           console.log(responseJSON.error);
         }
       });
+  };
+}
+
+export function logoutAction() {
+  return dispatch => {
+    return new Promise((resolve, reject) => {
+      dispatch({ type: "LOGOUT_USER" });
+
+      resolve();
+    });
   };
 }

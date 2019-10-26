@@ -5,6 +5,7 @@ import NavbarMobile from "./NavbarMobile";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 // import { leftItems, rightItems } from "../../commons/lists";
+import { logoutAction } from "../../actions/userActions";
 
 const NavBarChildren = ({ children }) => (
   <div style={{ marginTop: "1em" }}>{children}</div>
@@ -22,8 +23,9 @@ const Navbar = props => {
   const { children, leftItems, rightItems, loggedInRightItems } = props;
 
   const handleLogOut = () => {
-    props.logout();
-    props.history.push("/login");
+    props.logout().then(() => {
+      props.history.push("/login");
+    });
   };
 
   return (
@@ -60,7 +62,7 @@ let mapStateToProps = state => {
 
 let mapDispatchToProps = dispatch => {
   return {
-    logout: () => dispatch({ type: "LOGOUT_USER" })
+    logout: () => dispatch(logoutAction())
   };
 };
 

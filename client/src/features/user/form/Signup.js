@@ -11,7 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchPreferences } from "../../../actions/preferenceActions";
-import { signupAction } from "../../../actions/userActions";
+import { signupAction, loginAction } from "../../../actions/userActions";
 
 // const options = [
 //   { key: "f", id="1", text: "Fitness", value: "fitness" },
@@ -52,8 +52,11 @@ const Signup = props => {
   };
 
   const handleSubmit = () => {
-    props.signup({ user });
-    props.history.push("/login");
+    props.signup({ user }).then(() => {
+      props.login({ user }).then(() => {
+        props.history.push("/quote");
+      });
+    });
   };
 
   return (
@@ -164,7 +167,8 @@ let mapStateToProps = state => {
 let mapDispatchToProps = dispatch => {
   return {
     fetchPreferences: () => dispatch(fetchPreferences()),
-    signup: (formData) => dispatch(signupAction(formData))
+    signup: formData => dispatch(signupAction(formData)),
+    login: formData => dispatch(loginAction(formData))
   };
 };
 
