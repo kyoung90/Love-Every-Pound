@@ -35,7 +35,6 @@ const Quote = props => {
             to="/weights"
             icon="calendar alternate"
           />
-          <WeightForm />
         </Card.Content>
       </Card>
     </Container>
