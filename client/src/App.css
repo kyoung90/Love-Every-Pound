@@ -86,7 +86,29 @@ body {
   color: #d4d949 !important;
 }
 
-#paralaxImage {
+
+
+
+/* .aboutMe{
+  background-image: url("/assets/images/walking.jpg");
   height: 800px;
-  width: 1200px;
+
+} */
+.Mission{
+  background-color: #d4d949 !important;
+  color: black;
+}
+
+.Vision{
+  background-color: #a0a605 !important;
+  color:black;
+}
+
+.Creators{
+  background-color: #98d8c9 !important;
+  color: black;
+}
+
+#mission-card{
+  padding-top: 4em ;
 }
