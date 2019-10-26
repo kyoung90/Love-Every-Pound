@@ -42,6 +42,7 @@ vince = Author.create(name: "Vince Lombardi")
 steve = Author.create(name: "Steve Jobs")
 rob = Author.create(name: "Rob Siltanen")
 og = Author.create(name: "Og Mandino")
+
 george = Author.create(name: "George R.R. Martin")
 roy = Author.create(name: "Roy T. Bennett")
 israelmore = Author.create(name: "Israelmore Ayivor")
@@ -60,6 +61,16 @@ donald = Author.create(name: "Donald Trump")
 ngansop = Author.create(name: "Roy A. Ngansop")
 alexandra = Author.create(name: "Alexandra Bracken")
 
+lucille = Author.create(name: "Lucille Ball")
+diane = Author.create(name: "Diane Von Furstenberg")
+louise = Author.create(name: "Louise L. Hay")
+jerry = Author.create(name: "Jerry Corsten")
+andre = Author.create(name: "Andre Gide")
+maraboli = Author.create(name: "Steve Maraboli")
+sahaj = Author.create(name: "Sahaj Kohli")
+mae = Author.create(name: "Mae West")
+
+carmen = Author.create(name: "Carmen Harra")
 
 #fitness
 fitness_quote1 = Quote.create(content: "The last three or four reps is what makes the muscle grow. This area of pain divides a champion from someone who is not a champion.", author_id: arnold.id, preference_id: fitness.id)
@@ -110,3 +121,70 @@ quotes = [
 ]
 
 Quote.create(quotes)
+
+#self love
+quotes = [
+    {content: "Love yourself first and everything else falls into line.", author_id: lucille.id, preference_id: self_love.id},
+    {content: "F.L.Y. First Love Yourself. Others will come next.", author_id: unknown.id, preference_id: self_love.id},
+    {content: "Eat like you love yourself. Move like you love yourself. Speak like you love yourself. Act like you love yourself.", author_id: unknown.id, preference_id: self_love.id},
+    {content: "You’re always with yourself, so you might as well enjoy the company.", author_id: diane.id, preference_id: self_love.id},
+    {content: "Loving ourselves works miracles in our lives.", author_id: louise.id, preference_id: self_love.id},
+    {content: "Your relationship with yourself sets the tone for every other relationship you have.", author_id: unknown.id, preference_id: self_love.id},
+    {content: "I’m learning to love myself. It’s the hardest thing I’ve ever done.", author_id: unknown.id, preference_id: self_love.id},
+    {content: "Love yourself first, because that’s who you’ll be spending the rest of your life with.", author_id: unknown.id, preference_id: self_love.id},
+    {content: "Loving yourself starts with liking yourself, which starts with respecting yourself, which starts with thinking of yourself in positive ways.", author_id: jerry.id, preference_id: self_love.id},
+    {content: "Work on being in love with the person in the mirror who has been through so much but is still standing.", author_id: unknown.id, preference_id: self_love.id},
+    {content: "Loving yourself isn’t vanity. It’s sanity.", author_id: andre.id, preference_id: self_love.id},
+    {content: "Love yourself. Enough to take the actions required for your happiness. Enough to cut yourself loose from the drama-filled past. Enough to set a high standard for relationships. Enough to feed your mind and body in a healthy manner. Enough to forgive yourself. Enough to move on.", author_id: maraboli.id, preference_id: self_love.id},
+    {content: "The more you love yourself, the less nonsense you’ll tolerate.", author_id: unknown.id, preference_id: self_love.id},
+    {content: "What if you simply devoted this year to loving yourself more?", author_id: unknown.id, preference_id: self_love.id},
+    {content: "Fall in love with taking care of yourself. Mind. Body. Spirit.", author_id: unknown.id, preference_id: self_love.id},
+    {content: "The fact that someone else loves you doesn’t rescue you from the project of loving yourself.", author_id: sahaj.id, preference_id: self_love.id},
+    {content: "We must fall in love with yourselves. I don’t like myself. I’m crazy about myself.", author_id: mae.id, preference_id: self_love.id},
+    {content: "Falling in love with yourself first doesn’t make you vain or selfish – it makes you indestructible.", author_id: unknown.id, preference_id: self_love.id},
+    {content: "If you aren’t good at loving yourself, you will have a difficult time loving anyone, since you’ll resent the time and energy you give another person that you aren’t even giving to yourself.", author_id: unknown.id, preference_id: self_love.id},
+    {content: "Loving yourself is the greatest revolution.", author_id: unknown.id, preference_id: self_love.id}
+]
+
+Quote.create(quotes)
+
+#positive affirmations
+quotes = [
+    {content: "I am the architect of my life; I build its foundation and choose its contents.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "Today, I am brimming with energy and overflowing with joy.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "My body is healthy; my mind is brilliant; my soul is tranquil.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I am superior to negative thoughts and low actions.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I have been given endless talents which I begin to utilize today.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I forgive those who have harmed me in my past and peacefully detach from them.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "A river of compassion washes away my anger and replaces it with love.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I am guided in my every step by Spirit who leads me towards what I must know and do.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "My marriage is becoming stronger, deeper, and more stable each day.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I possess the qualities needed to be extremely successful.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "My business is growing, expanding, and thriving.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "Creative energy surges through me and leads me to new and brilliant ideas.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "Happiness is a choice. I base my happiness on my own accomplishments and the blessings I've been given.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "My ability to conquer my challenges is limitless; my potential to succeed is infinite.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I deserve to be employed and paid well for my time, efforts, and ideas. Each day, I am closer to finding the perfect job for me.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I am courageous and I stand up for myself.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "My thoughts are filled with positivity and my life is plentiful with prosperity.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "Today, I abandon my old habits and take up new, more positive ones.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "Many people look up to me and recognize my worth; I am admired.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I am blessed with an incredible family and wonderful friends.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I acknowledge my own self-worth; my confidence is soaring.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "Everything that is happening now is happening for my ultimate good.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I am a powerhouse; I am indestructible.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "Though these times are difficult, they are only a short phase of life.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "My future is an ideal projection of what I envision now.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "My efforts are being supported by the universe; my dreams manifest into reality before my eyes.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "The perfect partner for me is coming into my life sooner than I expect.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I radiate beauty, charm, and grace.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I am conquering my illness; I am defeating it steadily each day.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "My obstacles are moving out of my way; my path is carved towards greatness.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I wake up today with strength in my heart and clarity in my mind.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "My fears of tomorrow are simply melting away.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "I am at peace with all that has happened, is happening, and will happen.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "My nature is Divine; I am a spiritual being.", author_id: carmen.id, preference_id: positive_affirmation.id},
+    {content: "My life is just beginning.", author_id: carmen.id, preference_id: positive_affirmation.id}
+]
+
+# Quote.create(quotes)
