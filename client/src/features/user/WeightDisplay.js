@@ -38,7 +38,8 @@ const WeightDisplay = props => {
 
 let mapStateToProps = state => {
   return {
-    currentUser: state.users.currentUser
+    currentUser: state.users.currentUser,
+    loading: state.users.loading
   };
 };
 
